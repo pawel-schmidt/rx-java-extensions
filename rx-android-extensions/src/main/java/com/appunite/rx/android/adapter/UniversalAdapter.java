@@ -34,14 +34,14 @@ import rx.functions.Action1;
  * Universal adapter for {@link RecyclerView}
  */
 public class UniversalAdapter extends RecyclerView.Adapter<ViewHolderManager.BaseViewHolder>
-        implements Action1<List<BaseAdapterItem>>, ChangesDetector.ChangesAdapter {
+        implements Action1<List<? extends BaseAdapterItem>>, ChangesDetector.ChangesAdapter {
     @Nonnull
     private final ChangesDetector<BaseAdapterItem, BaseAdapterItem> changesDetector =
             new ChangesDetector<>(new SimpleDetector<BaseAdapterItem>());
     @Nonnull
-    private final List<ViewHolderManager> managers;
+    private final List<? extends ViewHolderManager> managers;
     @Nonnull
-    private List<BaseAdapterItem> items = Collections.emptyList();
+    private List<? extends BaseAdapterItem> items = Collections.emptyList();
 
     /**
      * Usage:
@@ -134,12 +134,12 @@ public class UniversalAdapter extends RecyclerView.Adapter<ViewHolderManager.Bas
      * }</pre>
      * @param managers for inflating views
      */
-    public UniversalAdapter(@Nonnull List<ViewHolderManager> managers) {
+    public UniversalAdapter(@Nonnull List<? extends ViewHolderManager> managers) {
         this.managers = managers;
     }
 
     @Override
-    public void call(@Nonnull List<BaseAdapterItem> baseAdapterItems) {
+    public void call(@Nonnull List<? extends BaseAdapterItem> baseAdapterItems) {
         items = baseAdapterItems;
         changesDetector.newData(this, items, false);
     }
