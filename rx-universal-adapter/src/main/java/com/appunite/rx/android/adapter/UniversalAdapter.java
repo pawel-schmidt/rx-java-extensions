@@ -188,7 +188,7 @@ public class UniversalAdapter extends RecyclerView.Adapter<ViewHolderManager.Bas
      *
      * @param position of item on the list
      * @return item at position
-     * @throws IndexOutOfBoundsException if location < 0 || location >= getItemCount()
+     * @throws IndexOutOfBoundsException if position < 0 || position >= getItemCount()
      */
     @Nonnull
     public BaseAdapterItem getItemAtPosition(int position) {

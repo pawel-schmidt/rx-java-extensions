@@ -4,6 +4,7 @@ dependencies {
 
     // Projects
     compile project(':rx-android-extensions')
+    compile project(':rx-universal-adapter')
     compile project(':example-model')
 
     // Android

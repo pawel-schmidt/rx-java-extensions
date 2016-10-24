@@ -30,6 +30,7 @@ public interface ViewHolderManager {
 
     /**
      * Return if this manager can handle that kind of type
+     *
      * @param baseAdapterItem adapter item
      * @return true if can handle this item
      */
@@ -37,7 +38,8 @@ public interface ViewHolderManager {
 
     /**
      * Create {@link ViewHolderManager.BaseViewHolder} for this item
-     * @param parent parent view
+     *
+     * @param parent   parent view
      * @param inflater layout inflater
      * @return new {@link ViewHolderManager.BaseViewHolder}
      */
@@ -46,12 +48,14 @@ public interface ViewHolderManager {
 
     /**
      * ViewHolder for managing view
+     *
      * @param <T> type of adapter item
      */
     abstract class BaseViewHolder<T extends BaseAdapterItem> extends RecyclerView.ViewHolder {
 
         /**
          * Create view holder
+         *
          * @param itemView view
          */
         public BaseViewHolder(@Nonnull View itemView) {
@@ -66,6 +70,7 @@ public interface ViewHolderManager {
         public void onViewRecycled() {
 
         }
+
         /**
          * Called by RecyclerView to display the data at the specified position. This method
          * should update the contents of that view holder to reflect the item.
@@ -80,13 +85,12 @@ public interface ViewHolderManager {
          * the View's transient state and return <code>true</code> so that the View can be recycled.
          * Keep in mind that the View in question is already removed from the RecyclerView.
          *
-         * @see {@link RecyclerView.Adapter#onFailedToRecycleView(RecyclerView.ViewHolder)}
-         *
          * @return True if the View should be recycled, false otherwise. Note that if this method
          * returns <code>true</code>, RecyclerView <em>will ignore</em> the transient state of
          * the View and recycle it regardless. If this method returns <code>false</code>,
          * RecyclerView will check the View's transient state again before giving a final decision.
          * Default implementation returns false.
+         * @see {@link RecyclerView.Adapter#onFailedToRecycleView(RecyclerView.ViewHolder)}
          */
         public boolean onFailedToRecycleView() {
             return false;
@@ -100,6 +104,7 @@ public interface ViewHolderManager {
         public void onViewAttachedToWindow() {
 
         }
+
         /**
          * Called when a view created by this view holder has been detached from its window.
          *
