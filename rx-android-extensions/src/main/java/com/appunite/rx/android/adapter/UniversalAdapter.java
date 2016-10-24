@@ -35,6 +35,7 @@ import rx.functions.Action1;
  */
 public class UniversalAdapter extends RecyclerView.Adapter<ViewHolderManager.BaseViewHolder>
         implements Action1<List<? extends BaseAdapterItem>>, ChangesDetector.ChangesAdapter {
+
     @Nonnull
     private final ChangesDetector<BaseAdapterItem, BaseAdapterItem> changesDetector =
             new ChangesDetector<>(new SimpleDetector<BaseAdapterItem>());
@@ -132,6 +133,7 @@ public class UniversalAdapter extends RecyclerView.Adapter<ViewHolderManager.Bas
      *
      *   recyclerView.setAdapter(adapter);
      * }</pre>
+     *
      * @param managers for inflating views
      */
     public UniversalAdapter(@Nonnull List<? extends ViewHolderManager> managers) {
@@ -179,9 +181,9 @@ public class UniversalAdapter extends RecyclerView.Adapter<ViewHolderManager.Bas
     }
 
     /**
-     * Return item at position
-     *
-     * Tip: Should not be used in reactive code because it's not a function
+     * Returns item at position
+     * <p>
+     * Tip: Should not be used in reactive code because it's not a function<br />
      * Tip: Need to be called from UIThread - because it can change
      *
      * @param position of item on the list
